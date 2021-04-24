@@ -16,11 +16,29 @@ window.addEventListener('DOMContentLoaded', async function() {
     // Create a variable to store level of service data in memory
     let levelOfService 
     if (serviceData[i].purpleRequested==true){
-      levelOfService = `Noober Purple`
+      levelOfService = `
+      <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+      <i class="fas fa-car-side"></i>
+      <span>Noober Purple</span>
+      </h1>
+      <div class="border-4 border-purple-500 p-4 my-4 text-left">
+      `
     } else if (serviceData[i].numberOfPassengers > 3){
-      levelOfService = 'Noober XL'
+      levelOfService = `
+      <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+      <i class="fas fa-car-side"></i>
+      <span>Noober <span class="text-3xl">XL</span></span>
+      </h1>
+      <div class="border-4 border-gray-900 p-4 my-4 text-left">
+      `
     } else {
-      levelOfService = 'Noober X'
+      levelOfService = `
+      <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+      <i class="fas fa-car-side"></i>
+      <span>Noober X</span>
+      </h1>
+      <div class="border-4 border-gray-900 p-4 my-4 text-left">
+      `
     } 
 
     // Create variables to store passengerDetails data (name, phone number) in memory
@@ -41,12 +59,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     // Insert HTML into the rides element, using the data from serviceData
     let ridesData= document.querySelector(`.rides`)
     ridesData.insertAdjacentHTML('beforeend',`
-    <h1 class="inline-block mt-8 px-4 py-2 rounded-xl text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-      <i class="fas fa-car-side"></i>
-      <span>${levelOfService}</span>
-    </h1>
-
-    <div class="border-4 border-gray-900 p-4 my-4 text-left">
+    ${levelOfService}
       <div class="flex">
         <div class="w-1/2">
           <h2 class="text-2xl py-1">${passengerName}</h2>
